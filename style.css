@@ -1,0 +1,84 @@
+body
+{
+	margin:0px;
+}
+#head
+{
+	text-align: center;
+	background: linear-gradient(to right,cyan,purple);
+	margin:0px;
+	padding: 20px;
+	border-bottom:2px solid lightgrey;
+}
+#head h1
+{
+	margin:0px;
+	font-family: 'Great Vibes', cursive;
+	color:white;
+	font-size: 40px;
+
+}
+.cont
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+#line
+{
+	border:1px solid black;
+	margin-top: 10px;
+}
+#login
+{
+	margin:40px;
+	font-family: 'Slabo 27px', serif;
+}
+#login h3
+{
+	text-align: center;
+}
+#register h3
+{
+	text-align: center;
+}
+input[name="register"],input[name="login"]
+{
+	background-color: white;
+	text-align: center;
+	padding:5px 10px 5px 10px;
+	border-radius: 10px;
+	border:1px solid black;
+	margin: 5px;
+}
+input[name="register"]:hover,input[name="login"]:hover
+{
+	font-weight: bold;
+}
+
+input[type="text"],input[type="password"],input[type="email"]
+{
+	border:1.5px solid black;
+	border-radius:5px;
+	padding: 5px;
+	margin:4px;
+}
+input[type="text"]:hover,input[type="password"]:hover,input[type="email"]:hover
+{
+	border:1px dashed black;
+}
+form
+{
+	text-align: center;
+}
+
+#register
+{
+	margin:40px;
+	font-family: 'Slabo 27px', serif;
+}
+#image
+{
+	display: flex;
+	justify-content: center;
+}
