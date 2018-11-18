@@ -1,12 +1,13 @@
-< <?php 
+<?php 
  session_start();
-$con=@new mysqli('localhost','root','Allaha@Ububtu3','thejoint');
+$con=@new mysqli('sql300.epizy.com','epiz_23003962','lqH3LaW9y6ss','epiz_23003962_thejoint');
 $email=$_SESSION['email'];
-$query="SELECT * FROM users WHERE email='$email'";
+$query="SELECT * FROM Users WHERE email='$email'";
 $result=$con->query($query);
 $result->data_seek(0);
 $row=$result->fetch_array(MYSQLI_ASSOC);
-$name=$row['Name'];
+$name=$row['FirstName'];
+$_SESSION['name'] = $name;
 $avatar=$row['avatar'];
 if (isset($_POST['upload'])) 
 {
@@ -14,17 +15,17 @@ if (isset($_POST['upload']))
 	$ext=".jpg";
 	$path=$folder.$email.$ext;
 	move_uploaded_file($_FILES['img']['tmp_name'],$path);
-	$query="UPDATE users  SET avatar='$path' where email='$email'";
+	$query="UPDATE Users  SET avatar='$path' where Email='$email'";
 	$result=$con->query($query);
 }
 if (isset($_GET['logout'])) 
 {
 	session_destroy();
-	header("Location:index.php");
+	header("Location:../index.php");
 }
 if (isset($_GET['chat'])) 
 {	
-	header("Location:chat.php");
+	header("Location:working.php");
 }
 ?>
 		

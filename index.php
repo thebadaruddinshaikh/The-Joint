@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$con=@new mysqli('localhost','root','Allaha@Ububtu3','thejoint');
+$con=@new mysqli('sql300.epizy.com','epiz_23003962','lqH3LaW9y6ss','epiz_23003962_thejoint');
 $salt1="Who!$tHeL0ved0ne";
 $salt2="@!!@h";
 if($con->connect_error) die("Failed to connect to the database");
@@ -52,7 +52,7 @@ if (isset($_POST['login']))
 		if (verify($id,$pin)) 
 		{
 			$_SESSION['email']=$id;
-			header("Location:homepage.php");
+			header("Location:homepage/homepage.php");
 		}
 		else
 		{
@@ -67,7 +67,7 @@ if (isset($_POST['login']))
 function verify($email,$pass)
 {
 	global $con;
-	$query="SELECT * FROM users WHERE email='$email' AND password='$pass'";
+	$query="SELECT * FROM Users WHERE email='$email' AND password='$pass'";
 	$result=$con->query($query);
 	$rows=$result->num_rows;
 	if ($rows==1) 
@@ -82,7 +82,7 @@ function verify($email,$pass)
 function isuser($email)
 {
 	global $con;
-	$query="SELECT * FROM users WHERE Email='$email'";
+	$query="SELECT * FROM Users WHERE Email='$email'";
 	$result=$con->query($query);
 	$rows=$result->num_rows;
 	if ($rows==1) 
@@ -109,7 +109,7 @@ function sanitise($name,$surname,$email,$password)
 function validate($name,$surname,$email,$password)
 {
 	global $con;
-	$query="SELECT * FROM users WHERE email='$email'";
+	$query="SELECT * FROM Users WHERE email='$email'";
 	$result=$con->query($query);
 	$rows=$result->num_rows;
 	if ($rows==0) 
@@ -124,7 +124,7 @@ function validate($name,$surname,$email,$password)
 function dataentry($name,$surname,$email,$password)
 {
 	global $con;
-	$query="INSERT INTO users (Name,Surname,Email,Password) VALUES ('$name','$surname','$email','$password')";
+	$query="INSERT INTO Users (FirstName,Surname,Email,Password) VALUES ('$name','$surname','$email','$password')";
 	$result=$con->query($query);
 	if ($result) 
 	{
